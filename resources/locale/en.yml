@@ -1,0 +1,21 @@
+custom-header:
+  admin:
+    headerTitle: Header Title
+    headerTitle-help: here u can change the main title of your header
+    headerTagline: Header Slogan
+    headerTagline-help: Here you can change your slogan
+    twitterIcon: Link to Twitter Page
+    twitterIcon-help: Paste here a valid URL to your twitter page
+    facebookIcon: Link to your facebook Page
+    facebookIcon-help: Paste here a valid URL to your facebook page
+    youtubeIcon: Link to your youtube Page
+    youtubeIcon-help: Paste here a valid URL to your youtube page
+    githubIcon: Link to your GitHub Page
+    githubIcon-help: Paste here a valid URL to your GitHub page
+  forum:
+    login: Login
+    signup: Signup
+    twitter: Follow us on Twitter
+    facebook: Follow us on Facebook
+    youtube: Follow us on Youtube
+    github: GitHub Page

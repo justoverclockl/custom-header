@@ -1,0 +1,128 @@
+import { extend } from 'flarum/extend';
+import app from 'flarum/app';
+import IndexPage from 'flarum/forum/components/IndexPage';
+import SignUpModal from 'flarum/forum/components/SignUpModal';
+import LogInModal from 'flarum/forum/components/LogInModal';
+
+
+app.initializers.add('justoverclock/custom-header', () => {
+    extend(IndexPage.prototype, 'view', function (vdom) {
+        if (vdom.children && vdom.children.splice) {
+            const user = app.session.user;
+            const bg = app.forum.attribute('baseUrl') + '/assets/extensions/justoverclock-custom-header/bg.jpg';
+
+            // definiamo il tasto di iscrizione
+            const HeaderButtons = {
+                view: function (vnode) {
+                    if (!user)
+                        return m(
+                            'a',
+                            {
+                                className: 'Button StreamsSignUp js-signup',
+                                onclick: () => app.modal.show(SignUpModal),
+                                'data-component': 'hero',
+                                'data-element': 'buttons',
+                            },
+                            app.translator.trans('custom-header.forum.signup')
+                        );
+                },
+            };
+            // definiamo il tasto login
+            const LoginButton = {
+                view: function (vnode) {
+                    if (!user)
+                        return m(
+                            'a',
+                            {
+                                className: 'Button StreamsLogin js-login',
+                                onclick: () => app.modal.show(LogInModal),
+                            },
+                            app.translator.trans('custom-header.forum.login')
+                        );
+                },
+            };
+          const twitterIcon = {
+            view: function (vnode) {
+              if (app.forum.attribute('twitterIcon') === ''){
+                return;
+              } else {
+                return m('i', { className: 'socialic fab fa-twitter' });
+            }},
+          };
+          const facebookIcon = {
+            view: function (vnode) {
+              if (app.forum.attribute('facebookIcon') === ''){
+                return;
+              } else {
+              return m('i', { className: 'socialic fab fa-facebook-square' });
+            }},
+          };
+          const youtubeIcon = {
+            view: function (vnode) {
+              if (app.forum.attribute('youtubeIcon') === ''){
+                return;
+              } else {
+                return m('i', { className: 'socialic fab fa-youtube' });
+              }},
+          };
+          const gitHubIcon = {
+            view: function (vnode) {
+              if (app.forum.attribute('githubIcon') === ''){
+                return;
+              } else {
+                return m('i', { className: 'socialic fab fa-github-square' });
+              }},
+          };
+
+            const insert = m(
+                'div',
+                { className: 'StreamsHero-image' },
+                m('div', { className: 'StreamsHero-content' }, [
+                    m('div', { className: 'StreamsHero-buttonContainer' }, [
+                        m('a', { className: 'js-nav', 'data-element': 'logo', target: '_blank' }, [
+                            m('a',
+                                { href: app.forum.attribute('twitterIcon'), title: app.translator.trans('custom-header.forum.twitter') },
+                                m(twitterIcon)
+                            ),
+                            m('a',
+                                {
+                                    href: app.forum.attribute('facebookIcon'),
+                                    title: app.translator.trans('custom-header.forum.facebook'),
+                                },
+                                m(facebookIcon)
+                            ),
+                            m('a',
+                                {
+                                    href: app.forum.attribute('youtubeIcon'),
+                                    title: app.translator.trans('custom-header.forum.youtube'),
+                                },
+                                m(youtubeIcon)
+                            ),
+                            m('a',
+                                {
+                                    href: app.forum.attribute('githubIcon'),
+                                    title: app.translator.trans('custom-header.forum.github'),
+                                },
+                            m(gitHubIcon)
+                          ),
+                        ]),
+                        m(HeaderButtons),
+                        m(LoginButton),
+                    ]),
+                    m('h2', { className: 'StreamsHero-header' }, app.forum.attribute('headerTitle')),
+                    m('p', { className: 'StreamsHero-blurb' }, app.forum.attribute('headerTagline')),
+                ])
+            );
+            vdom.children.splice(0, 0, insert);
+        }
+    });
+});
+extend(IndexPage.prototype, 'oncreate', function (vnode) {
+    const welcomeHero = document.getElementsByClassName('Hero WelcomeHero');
+    // nascondiamo la welcome hero nella pagina principale
+    if (app.current.matches(IndexPage)) {
+        for (var i = 0; i < welcomeHero.length; i++) {
+            welcomeHero[i].style.display = 'none';
+        }
+    }
+});
