@@ -129,7 +129,9 @@ flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.initializers.add('justovercloc
   Object(flarum_extend__WEBPACK_IMPORTED_MODULE_0__["extend"])(flarum_forum_components_IndexPage__WEBPACK_IMPORTED_MODULE_2___default.a.prototype, 'view', function (vdom) {
     if (vdom.children && vdom.children.splice) {
       var user = flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.session.user;
-      var bg = flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('baseUrl') + '/assets/extensions/justoverclock-custom-header/bg.jpg'; // definiamo il tasto di iscrizione
+      var bg = flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('baseUrl') + '/assets/extensions/justoverclock-custom-header/bg.jpg';
+      var LinkButtonOne = 'https://flarum.it';
+      var LinkButtonTwo = 'https://flarum.it'; // definiamo il tasto di iscrizione
 
       var HeaderButtons = {
         view: function view(vnode) {
@@ -224,7 +226,17 @@ flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.initializers.add('justovercloc
         className: 'StreamsHero-header'
       }, flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('headerTitle')), m('p', {
         className: 'StreamsHero-blurb'
-      }, flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('headerTagline'))]));
+      }, flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('headerTagline')), m('button', {
+        className: 'headerButtons'
+      }, m('a', {
+        className: 'buttontext',
+        href: LinkButtonOne
+      }, 'Text Here')), m('button', {
+        className: 'headerButtons'
+      }, m('a', {
+        className: 'buttontext',
+        href: LinkButtonTwo
+      }, 'Text Super Here'))]));
       vdom.children.splice(0, 0, insert);
     }
   });

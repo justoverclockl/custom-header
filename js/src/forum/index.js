@@ -4,12 +4,13 @@ import IndexPage from 'flarum/forum/components/IndexPage';
 import SignUpModal from 'flarum/forum/components/SignUpModal';
 import LogInModal from 'flarum/forum/components/LogInModal';
 
-
 app.initializers.add('justoverclock/custom-header', () => {
     extend(IndexPage.prototype, 'view', function (vdom) {
         if (vdom.children && vdom.children.splice) {
             const user = app.session.user;
             const bg = app.forum.attribute('baseUrl') + '/assets/extensions/justoverclock-custom-header/bg.jpg';
+            const LinkButtonOne = 'https://flarum.it';
+            const LinkButtonTwo = 'https://flarum.it';
 
             // definiamo il tasto di iscrizione
             const HeaderButtons = {
@@ -41,38 +42,42 @@ app.initializers.add('justoverclock/custom-header', () => {
                         );
                 },
             };
-          const twitterIcon = {
-            view: function (vnode) {
-              if (app.forum.attribute('twitterIcon') === ''){
-                return;
-              } else {
-                return m('i', { className: 'socialic fab fa-twitter' });
-            }},
-          };
-          const facebookIcon = {
-            view: function (vnode) {
-              if (app.forum.attribute('facebookIcon') === ''){
-                return;
-              } else {
-              return m('i', { className: 'socialic fab fa-facebook-square' });
-            }},
-          };
-          const youtubeIcon = {
-            view: function (vnode) {
-              if (app.forum.attribute('youtubeIcon') === ''){
-                return;
-              } else {
-                return m('i', { className: 'socialic fab fa-youtube' });
-              }},
-          };
-          const gitHubIcon = {
-            view: function (vnode) {
-              if (app.forum.attribute('githubIcon') === ''){
-                return;
-              } else {
-                return m('i', { className: 'socialic fab fa-github-square' });
-              }},
-          };
+            const twitterIcon = {
+                view: function (vnode) {
+                    if (app.forum.attribute('twitterIcon') === '') {
+                        return;
+                    } else {
+                        return m('i', { className: 'socialic fab fa-twitter' });
+                    }
+                },
+            };
+            const facebookIcon = {
+                view: function (vnode) {
+                    if (app.forum.attribute('facebookIcon') === '') {
+                        return;
+                    } else {
+                        return m('i', { className: 'socialic fab fa-facebook-square' });
+                    }
+                },
+            };
+            const youtubeIcon = {
+                view: function (vnode) {
+                    if (app.forum.attribute('youtubeIcon') === '') {
+                        return;
+                    } else {
+                        return m('i', { className: 'socialic fab fa-youtube' });
+                    }
+                },
+            };
+            const gitHubIcon = {
+                view: function (vnode) {
+                    if (app.forum.attribute('githubIcon') === '') {
+                        return;
+                    } else {
+                        return m('i', { className: 'socialic fab fa-github-square' });
+                    }
+                },
+            };
 
             const insert = m(
                 'div',
@@ -103,14 +108,16 @@ app.initializers.add('justoverclock/custom-header', () => {
                                     href: app.forum.attribute('githubIcon'),
                                     title: app.translator.trans('custom-header.forum.github'),
                                 },
-                            m(gitHubIcon)
-                          ),
+                                m(gitHubIcon)
+                            ),
                         ]),
                         m(HeaderButtons),
                         m(LoginButton),
                     ]),
                     m('h2', { className: 'StreamsHero-header' }, app.forum.attribute('headerTitle')),
                     m('p', { className: 'StreamsHero-blurb' }, app.forum.attribute('headerTagline')),
+                    m('button', { className: 'headerButtons' }, m('a', { className: 'buttontext', href: LinkButtonOne }, 'Text Here')),
+                    m('button', { className: 'headerButtons' }, m('a', { className: 'buttontext', href: LinkButtonTwo }, 'Text Super Here')),
                 ])
             );
             vdom.children.splice(0, 0, insert);
