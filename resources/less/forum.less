@@ -142,4 +142,21 @@ a.Button.StreamsLogin.js-login {
   margin-left: 5px;
   color: #ffffff;
 }
-
+body when (@config-dark-mode = true) {
+  .StreamsHero-buttonContainer .Button {
+    color: #fff;
+    background: rgba(187, 76, 1, 0.8);
+    border: 0px;
+  }
+  .StreamsHero-buttonContainer .Button:hover {
+    color: #fff;
+    background: rgba(187, 76, 1, 0.4);
+  }
+  a.Button.StreamsLogin.js-login {
+    margin-left: 5px;
+  }
+  a.Button.StreamsLogin.js-login:hover {
+    margin-left: 5px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
