@@ -1,6 +1,6 @@
 # CustomHeader
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/justoverclock/custom-header.svg)](https://packagist.org/packages/justoverclock/custom-header) [![Total Downloads](https://img.shields.io/packagist/dt/justoverclock/custom-header.svg)](https://packagist.org/packages/justoverclock/custom-header)
+![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](http://poser.pugx.org/justoverclock/custom-header/v)](https://packagist.org/packages/justoverclock/custom-header) [![Total Downloads](http://poser.pugx.org/justoverclock/custom-header/downloads)](https://packagist.org/packages/justoverclock/custom-header) [![Support Me](https://img.shields.io/badge/Donate-Support%20My%20Work-orange)](https://github.com/sponsors/justoverclockl)
 
 ### Header for guest
 
