@@ -36,4 +36,12 @@ return [
         ->serializeToForum('youtubeIcon', 'justoverclock-custom-header.youtubeIcon'),
     (new Extend\Settings)
         ->serializeToForum('githubIcon', 'justoverclock-custom-header.githubIcon'),
+    (new Extend\Settings)
+        ->serializeToForum('buttonText', 'justoverclock-custom-header.buttonText'),
+    (new Extend\Settings)
+        ->serializeToForum('button2Text', 'justoverclock-custom-header.button2Text'),
+    (new Extend\Settings)
+        ->serializeToForum('LinkButtonOne', 'justoverclock-custom-header.LinkButtonOne'),
+    (new Extend\Settings)
+        ->serializeToForum('LinkButtonTwo', 'justoverclock-custom-header.LinkButtonTwo'),
 ];

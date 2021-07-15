@@ -120,6 +120,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var flarum_forum_components_SignUpModal__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(flarum_forum_components_SignUpModal__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var flarum_forum_components_LogInModal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! flarum/forum/components/LogInModal */ "flarum/forum/components/LogInModal");
 /* harmony import */ var flarum_forum_components_LogInModal__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(flarum_forum_components_LogInModal__WEBPACK_IMPORTED_MODULE_4__);
+/*
+ * This file is part of justoverclock/custom-header.
+ *
+ * Copyright (c) 2021 Marco Colia.
+ * https://flarum.it
+ *
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
 
 
 
@@ -130,8 +139,8 @@ flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.initializers.add('justovercloc
     if (vdom.children && vdom.children.splice) {
       var user = flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.session.user;
       var bg = flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('baseUrl') + '/assets/extensions/justoverclock-custom-header/bg.jpg';
-      var LinkButtonOne = 'https://flarum.it';
-      var LinkButtonTwo = 'https://flarum.it'; // definiamo il tasto di iscrizione
+      var LinkButtonOne = flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('LinkButtonOne');
+      var LinkButtonTwo = flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('LinkButtonTwo'); // definiamo il tasto di iscrizione
 
       var HeaderButtons = {
         view: function view(vnode) {
@@ -155,7 +164,8 @@ flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.initializers.add('justovercloc
             }
           }, flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.translator.trans('custom-header.forum.login'));
         }
-      };
+      }; // inizio icone social
+
       var twitterIcon = {
         view: function view(vnode) {
           if (flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('twitterIcon') === '') {
@@ -199,7 +209,8 @@ flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.initializers.add('justovercloc
             });
           }
         }
-      };
+      }; //codice per l'header
+
       var insert = m('div', {
         className: 'StreamsHero-image'
       }, m('div', {
@@ -226,17 +237,17 @@ flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.initializers.add('justovercloc
         className: 'StreamsHero-header'
       }, flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('headerTitle')), m('p', {
         className: 'StreamsHero-blurb'
-      }, flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('headerTagline')), m('button', {
+      }, flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('headerTagline')), m('a', {
+        href: LinkButtonOne,
         className: 'headerButtons'
-      }, m('a', {
-        className: 'buttontext',
-        href: LinkButtonOne
-      }, 'Text Here')), m('button', {
+      }, m('span', {
+        className: 'buttontext'
+      }), flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('buttonText') || 'Button 1'), m('a', {
+        href: LinkButtonTwo,
         className: 'headerButtons'
-      }, m('a', {
-        className: 'buttontext',
-        href: LinkButtonTwo
-      }, 'Text Super Here'))]));
+      }, m('span', {
+        className: 'buttontext'
+      }), flarum_app__WEBPACK_IMPORTED_MODULE_1___default.a.forum.attribute('button2Text') || 'Button 2')]));
       vdom.children.splice(0, 0, insert);
     }
   });

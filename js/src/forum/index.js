@@ -1,3 +1,13 @@
+/*
+ * This file is part of justoverclock/custom-header.
+ *
+ * Copyright (c) 2021 Marco Colia.
+ * https://flarum.it
+ *
+ * For the full copyright and license information, please view the LICENSE.md
+ * file that was distributed with this source code.
+ */
+
 import { extend } from 'flarum/extend';
 import app from 'flarum/app';
 import IndexPage from 'flarum/forum/components/IndexPage';
@@ -9,8 +19,8 @@ app.initializers.add('justoverclock/custom-header', () => {
         if (vdom.children && vdom.children.splice) {
             const user = app.session.user;
             const bg = app.forum.attribute('baseUrl') + '/assets/extensions/justoverclock-custom-header/bg.jpg';
-            const LinkButtonOne = 'https://flarum.it';
-            const LinkButtonTwo = 'https://flarum.it';
+            const LinkButtonOne = app.forum.attribute('LinkButtonOne');
+            const LinkButtonTwo = app.forum.attribute('LinkButtonTwo');
 
             // definiamo il tasto di iscrizione
             const HeaderButtons = {
@@ -42,6 +52,7 @@ app.initializers.add('justoverclock/custom-header', () => {
                         );
                 },
             };
+            // inizio icone social
             const twitterIcon = {
                 view: function (vnode) {
                     if (app.forum.attribute('twitterIcon') === '') {
@@ -78,7 +89,7 @@ app.initializers.add('justoverclock/custom-header', () => {
                     }
                 },
             };
-
+            //codice per l'header
             const insert = m(
                 'div',
                 { className: 'StreamsHero-image' },
@@ -86,7 +97,8 @@ app.initializers.add('justoverclock/custom-header', () => {
                     m('div', { className: 'StreamsHero-buttonContainer' }, [
                         m('a', { className: 'js-nav', 'data-element': 'logo', target: '_blank' }, [
                             m('a',
-                                { href: app.forum.attribute('twitterIcon'), title: app.translator.trans('custom-header.forum.twitter') },
+                                { href: app.forum.attribute('twitterIcon'),
+                                  title: app.translator.trans('custom-header.forum.twitter') },
                                 m(twitterIcon)
                             ),
                             m('a',
@@ -116,8 +128,16 @@ app.initializers.add('justoverclock/custom-header', () => {
                     ]),
                     m('h2', { className: 'StreamsHero-header' }, app.forum.attribute('headerTitle')),
                     m('p', { className: 'StreamsHero-blurb' }, app.forum.attribute('headerTagline')),
-                    m('button', { className: 'headerButtons' }, m('a', { className: 'buttontext', href: LinkButtonOne }, 'Text Here')),
-                    m('button', { className: 'headerButtons' }, m('a', { className: 'buttontext', href: LinkButtonTwo }, 'Text Super Here')),
+                    m('a',
+                        { href: LinkButtonOne, className: 'headerButtons' },
+                        m('span', { className: 'buttontext' }),
+                        app.forum.attribute('buttonText') || 'Button 1'
+                    ),
+                    m('a',
+                        { href: LinkButtonTwo, className: 'headerButtons' },
+                        m('span', { className: 'buttontext' }),
+                        app.forum.attribute('button2Text') || 'Button 2'
+                    ),
                 ])
             );
             vdom.children.splice(0, 0, insert);

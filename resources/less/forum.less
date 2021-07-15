@@ -15,13 +15,14 @@
 }
 .StreamsHero-image {
 
-  /*background: url("./extensions/justoverclock-custom-header/bg.jpg");*/
+  background: url("./extensions/justoverclock-custom-header/bg.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
-  background: -moz-linear-gradient(-45deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%);
+  /*background: -moz-linear-gradient(-45deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%);
   background: -webkit-linear-gradient(-45deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%);
   background: linear-gradient(135deg, #59adeb 0%, #42c2b5 52%, #34ce93 100%);
   background-size: 350% 350%;
-  animation: waveColors 8s ease infinite;
+  animation: waveColors 8s ease infinite;*/
   top: 0;
   left: 0;
   width: 100%;
@@ -34,6 +35,7 @@
   font-weight: 200;
   line-height: 48px;
   margin-bottom: 0px;
+  margin-top: 0px;
   font-size: 32px;
   padding: 0px 40px 0px;
 }
@@ -104,6 +106,9 @@
 .headerButtons:hover {
   background: #f6f6f8;
 }
+.headerButtons:active {
+  background: #e8e8ee;
+}
 a.buttontext {
   text-decoration: none !important;
 }
@@ -135,5 +140,6 @@ a.buttontext {
 }
 a.Button.StreamsLogin.js-login {
   margin-left: 5px;
+  color: #ffffff;
 }
 

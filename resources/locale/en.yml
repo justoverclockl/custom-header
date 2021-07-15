@@ -12,6 +12,14 @@ custom-header:
     youtubeIcon-help: Paste here a valid URL to your youtube page
     githubIcon: Link to your GitHub Page
     githubIcon-help: Paste here a valid URL to your GitHub page
+    button-text: Left Button Text
+    button-text-help: Put here the text for your left button
+    button2-text: Right Button Text
+    button2-text-help: Put here the text for your right button
+    link-button-one: Link for Left Button
+    link-button-one-help: Put a valid URL here for the left button
+    link-button-two: Link for Right Button
+    link-button-two-help: Put a valid URL here for the Right button
   forum:
     login: Login
     signup: Signup
