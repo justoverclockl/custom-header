@@ -29,9 +29,9 @@
       "title": "CustomHeader",
       "category": "",
       "icon": {
-        "name": "",
-        "backgroundColor": "",
-        "color": ""
+        "name": "fa-solid fa-file-code",
+        "backgroundColor": "green",
+        "color": "white"
       }
     },
     "flagrow": {
