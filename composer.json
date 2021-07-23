@@ -29,7 +29,7 @@
       "title": "CustomHeader",
       "category": "",
       "icon": {
-        "name": "fa-solid fa-file-code",
+        "name": "fas fa-file-code",
         "backgroundColor": "green",
         "color": "white"
       }
