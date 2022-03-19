@@ -15,6 +15,12 @@ import SignUpModal from 'flarum/forum/components/SignUpModal';
 import LogInModal from 'flarum/forum/components/LogInModal';
 
 app.initializers.add('justoverclock/custom-header', () => {
+    extend(IndexPage.prototype, 'oncreate', function (){
+      const headerImage = document.getElementById('StreamsHero-content')
+      const bgImageUrl = app.forum.attribute('justoverclock-custom-header.headerBackgroundImage') || app.forum.attribute('baseUrl') + '/assets/extensions/justoverclock-custom-header/bg.jpg';
+      headerImage.style.backgroundImage = "url('" +  bgImageUrl  + "')";
+      headerImage.setAttribute('background-size', 'cover')
+    })
     extend(IndexPage.prototype, 'view', function (vdom) {
         if (vdom.children && vdom.children.splice) {
             const user = app.session.user;
@@ -93,7 +99,7 @@ app.initializers.add('justoverclock/custom-header', () => {
             const insert = m(
                 'div',
                 { className: 'StreamsHero-image' },
-                m('div', { className: 'StreamsHero-content' }, [
+                m('div', { className: 'StreamsHero-content', id: 'StreamsHero-content' }, [
                     m('div', { className: 'StreamsHero-buttonContainer' }, [
                         m('a', { className: 'js-nav', 'data-element': 'logo', target: '_blank' }, [
                             m('a',
