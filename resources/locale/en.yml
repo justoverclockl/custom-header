@@ -21,7 +21,7 @@ custom-header:
     link-button-two: Link for Right Button
     link-button-two-help: Put a valid URL here for the Right button
     headerBackgroundImage: Header Background Image
-    headerBackgroundImage-help: paste here the URL of your custom background image
+    headerBackgroundImage-help: Paste here the URL of your custom background image
   forum:
     login: Login
     signup: Signup
